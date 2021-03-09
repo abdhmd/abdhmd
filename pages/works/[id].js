@@ -50,7 +50,7 @@ const Work = ({ work }) => {
           </span>
           {work.image.map((img) => {
             return (
-              <img key={img.id} src={`${API_URL + img.url}`} alt={work.title} />
+              <img key={img.id} src={`${img.url}`} alt={work.title} />
             );
           })}
         </div>

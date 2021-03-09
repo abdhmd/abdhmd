@@ -20,35 +20,6 @@ export async function getStaticProps() {
   }
 }
 
-// export async function getStaticProps() {
-//   const client = new ApolloClient({
-//     uri: `${API_URL}/graphql`,
-//     cache: new InMemoryCache(),
-//   });
-
-//   const { data } = await client.query({
-//     query: gql`
-//       query {
-//         works {
-//           id
-//           title
-//           image {
-//             id
-//             url
-//           }
-//         }
-//       }
-//     `,
-//   });
-
-//   console.log(data);
-
-//   return {
-//     props: {
-//       works: data.works,
-//     },
-//   };
-// }
 
 const Works = ({ works }) => {
   return (
@@ -65,7 +36,7 @@ const Works = ({ works }) => {
                 return (
                   <img
                     key={img.id}
-                    src={`${API_URL+img.url}`}
+                    src={`${img.url}`}
                     alt={work.title}
                   />
                 );
