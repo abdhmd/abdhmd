@@ -1,5 +1,6 @@
 import workStyle from "../../styles/Works.module.css";
 import Link from "next/link";
+import Image from "next/Image";
 // import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -8,7 +9,6 @@ export const getStaticProps = async (context) => {
   const id = context.params.id;
   const res = await fetch(`${API_URL}/works/${id}`);
   const data = await res.json();
-
 
   return {
     props: {
@@ -50,7 +50,13 @@ const Work = ({ work }) => {
           </span>
           {work.image.map((img) => {
             return (
-              <img key={img.id} src={`${img.url}`} alt={work.title} />
+              <Image
+                key={img.id}
+                src={`${img.url}`}
+                alt={work.title}
+                width={600}
+                height={320}
+              />
             );
           })}
         </div>

@@ -19,7 +19,6 @@ const skills = () => {
               return <li key={soft.id}>{soft.name}</li>;
             })}
           </ul>
-          ;
         </main>
       </div>
     </section>
